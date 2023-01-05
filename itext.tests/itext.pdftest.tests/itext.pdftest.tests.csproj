@@ -40,8 +40,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\itext\itext.pdftest\itext.pdftest.csproj" />
   </ItemGroup>
-  <ItemGroup>
-  </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
     <PackageReference Include="Microsoft.NET.Test.Sdk">
       <Version>15.0.0</Version>
