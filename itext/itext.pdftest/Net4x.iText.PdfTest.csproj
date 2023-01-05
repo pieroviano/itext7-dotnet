@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup Label="Configuration">
     <SignAssembly>True</SignAssembly>
     <DelaySign>False</DelaySign>
@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\itext.io\itext.io.csproj" />
+    <ProjectReference Include="..\itext.io\Net4x.iText.IO.csproj" />
   </ItemGroup>
   <ItemGroup>
 	<Content Include="lib\verapdf\greenfield-apps-1.22.2.jar">
@@ -55,4 +55,14 @@
     </Content>
     <None Include="packages.config" />
   </ItemGroup>
+
+  <PropertyGroup>
+    <PackageId>$(MSBuildProjectName)</PackageId>
+    <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
+  </PropertyGroup>
+  <Import Project="$(USERPROFILE)\.nuget\packages\ObfuscatorUtility.PieroViano\1.0.0\build\ObfuscatorUtility.PieroViano.props" Condition="Exists('$(USERPROFILE)\.nuget\packages\ObfuscatorUtility.PieroViano\1.0.0\build\ObfuscatorUtility.PieroViano.props')" />
+  <ItemGroup>
+    <PackageReference Include="ObfuscatorUtility.PieroViano" Version="1.0.0" />
+  </ItemGroup>
+
 </Project>

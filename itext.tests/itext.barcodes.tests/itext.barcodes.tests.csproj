@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup Label="Configuration">
     <SignAssembly>True</SignAssembly>
     <DelaySign>False</DelaySign>
@@ -38,10 +38,10 @@
     <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\itext\itext.barcodes\itext.barcodes.csproj" />
-    <ProjectReference Include="..\..\itext\itext.io\itext.io.csproj" />
-    <ProjectReference Include="..\..\itext\itext.kernel\itext.kernel.csproj" />
-    <ProjectReference Include="..\..\itext\itext.pdftest\itext.pdftest.csproj" />
+    <ProjectReference Include="..\..\itext\itext.barcodes\Net4x.iText.BarCodes.csproj" />
+    <ProjectReference Include="..\..\itext\itext.io\Net4x.iText.IO.csproj" />
+    <ProjectReference Include="..\..\itext\itext.kernel\Net4x.iText.Kernel.csproj" />
+    <ProjectReference Include="..\..\itext\itext.pdftest\Net4x.iText.PdfTest.csproj" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
     <PackageReference Include="Microsoft.NET.Test.Sdk">

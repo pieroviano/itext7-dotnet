@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup Label="Configuration">
     <SignAssembly>True</SignAssembly>
     <DelaySign>False</DelaySign>
@@ -88,6 +88,16 @@
 	  <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\itext.commons\itext.commons.csproj" />
+    <ProjectReference Include="..\itext.commons\Net4x.iText.Commons.csproj" />
   </ItemGroup>
+
+  <PropertyGroup>
+    <PackageId>$(MSBuildProjectName)</PackageId>
+    <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
+  </PropertyGroup>
+  <Import Project="$(USERPROFILE)\.nuget\packages\ObfuscatorUtility.PieroViano\1.0.0\build\ObfuscatorUtility.PieroViano.props" Condition="Exists('$(USERPROFILE)\.nuget\packages\ObfuscatorUtility.PieroViano\1.0.0\build\ObfuscatorUtility.PieroViano.props')" />
+  <ItemGroup>
+    <PackageReference Include="ObfuscatorUtility.PieroViano" Version="1.0.0" />
+  </ItemGroup>
+
 </Project>

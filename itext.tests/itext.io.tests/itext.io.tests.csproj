@@ -38,8 +38,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\itext\itext.io\itext.io.csproj" />
-    <ProjectReference Include="..\..\itext\itext.pdftest\itext.pdftest.csproj" />
+    <ProjectReference Include="..\..\itext\itext.io\Net4x.iText.IO.csproj" />
+    <ProjectReference Include="..\..\itext\itext.pdftest\Net4x.iText.PdfTest.csproj" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
     <PackageReference Include="Microsoft.NET.Test.Sdk">

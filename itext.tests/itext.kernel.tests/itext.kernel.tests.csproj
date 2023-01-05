@@ -39,10 +39,10 @@
     <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\itext\itext.io\itext.io.csproj" />
-    <ProjectReference Include="..\..\itext\itext.kernel\itext.kernel.csproj" />
-    <ProjectReference Include="..\..\itext\itext.pdftest\itext.pdftest.csproj" />
-    <ProjectReference Include="..\..\itext\itext.font-asian\itext.font-asian.csproj" />
+    <ProjectReference Include="..\..\itext\itext.io\Net4x.iText.IO.csproj" />
+    <ProjectReference Include="..\..\itext\itext.kernel\Net4x.iText.Kernel.csproj" />
+    <ProjectReference Include="..\..\itext\itext.pdftest\Net4x.iText.PdfTest.csproj" />
+    <ProjectReference Include="..\..\itext\itext.font-asian\Net4x.iText.Font-Asian.csproj" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
     <PackageReference Include="Microsoft.NET.Test.Sdk">

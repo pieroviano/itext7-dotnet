@@ -42,12 +42,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\itext\itext.io\itext.io.csproj" />
-    <ProjectReference Include="..\..\itext\itext.kernel\itext.kernel.csproj" />
-    <ProjectReference Include="..\..\itext\itext.layout\itext.layout.csproj" />
-    <ProjectReference Include="..\..\itext\itext.pdftest\itext.pdftest.csproj" />
-    <ProjectReference Include="..\..\itext\itext.styledxmlparser\itext.styledxmlparser.csproj" />
-    <ProjectReference Include="..\..\itext\itext.svg\itext.svg.csproj" />
+    <ProjectReference Include="..\..\itext\itext.io\Net4x.iText.IO.csproj" />
+    <ProjectReference Include="..\..\itext\itext.kernel\Net4x.iText.Kernel.csproj" />
+    <ProjectReference Include="..\..\itext\itext.layout\Net4x.iText.Layout.csproj" />
+    <ProjectReference Include="..\..\itext\itext.pdftest\Net4x.iText.PdfTest.csproj" />
+    <ProjectReference Include="..\..\itext\itext.styledxmlparser\Net4x.iText.StyledXmlParser.csproj" />
+    <ProjectReference Include="..\..\itext\itext.svg\Net4x.iText.Svg.csproj" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
     <PackageReference Include="Microsoft.NET.Test.Sdk">
