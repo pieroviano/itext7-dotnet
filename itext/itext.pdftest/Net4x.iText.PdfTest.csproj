@@ -47,10 +47,10 @@
     <ProjectReference Include="..\itext.io\Net4x.iText.IO.csproj" />
   </ItemGroup>
   <ItemGroup>
-	<Content Include="lib\verapdf\greenfield-apps-1.22.2.jar">
+    <Content Include="lib\verapdf\greenfield-apps-1.22.2.jar">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-	<Content Include="lib\verapdf\VeraPDF_license.txt">
+    <Content Include="lib\verapdf\VeraPDF_license.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
@@ -58,6 +58,7 @@
 
   <PropertyGroup>
     <PackageId>$(MSBuildProjectName)</PackageId>
+    <PackageLicenseUrl>https://www.gnu.org/licenses/agpl.html</PackageLicenseUrl>
     <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
   </PropertyGroup>
   <Import Project="$(USERPROFILE)\.nuget\packages\ObfuscatorUtility.PieroViano\1.0.0\build\ObfuscatorUtility.PieroViano.props" Condition="Exists('$(USERPROFILE)\.nuget\packages\ObfuscatorUtility.PieroViano\1.0.0\build\ObfuscatorUtility.PieroViano.props')" />
