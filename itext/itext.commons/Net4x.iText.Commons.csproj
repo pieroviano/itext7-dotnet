@@ -1,4 +1,6 @@
-﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+  <Import Project = "$(UserProfile)\.nuget\packages\obfuscatorutility\1.0.0\build\ObfuscatorUtility.targets" Condition="Exists('$(UserProfile)\.nuget\packages\obfuscatorutility\1.0.0\build\ObfuscatorUtility.targets')" />
+  <Import Project = "$(UserProfile)\.nuget\packages\obfuscatorutility\1.0.0\build\ObfuscatorUtility.props" Condition="Exists('$(UserProfile)\.nuget\packages\obfuscatorutility\1.0.0\build\ObfuscatorUtility.props')" />
   <PropertyGroup Label="Configuration">
     <SignAssembly>True</SignAssembly>
     <DelaySign>False</DelaySign>
@@ -40,7 +42,7 @@
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net40'">
     <PackageReference Include="Net4x.Extensions.Logging" Version="2.2.0" />
-    <PackageReference Include="Net4x.AsyncBridge" Version="1.0.0" PrivateAssets="all" />
+    <PackageReference Include="Net4x.AsyncBridge" Version="1.0.0" />
     <PackageReference Include="DotNetZip" Version="1.16.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net45' ">
@@ -57,7 +59,7 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="ObfuscatorUtility.PieroViano" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="ObfuscatorUtility" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
