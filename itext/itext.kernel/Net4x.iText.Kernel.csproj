@@ -6,6 +6,8 @@
     <DelaySign>False</DelaySign>
     <DocumentationFile>$(TargetDir)bin\$(Configuration)\$(TargetFramework)\itext.kernel.xml</DocumentationFile>
     <WarningLevel>4</WarningLevel>
+    <Net4xiTextVersion Condition="'$(Net4xiTextVersion)' == ''">1.0.0</Net4xiTextVersion>
+    <Version>$(Net4xiTextVersion)$(Suffix)</Version>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
     <DefineConstants>PORTABLE;NEW_REFLECTION</DefineConstants>

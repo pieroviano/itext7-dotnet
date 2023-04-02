@@ -7,6 +7,8 @@
     <DocumentationFile>$(TargetDir)bin\$(Configuration)\$(TargetFramework)\itext.hyph.xml</DocumentationFile>
     <RootNamespace>iText.Hyph</RootNamespace>
     <WarningLevel>4</WarningLevel>
+    <Net4xiTextVersion Condition="'$(Net4xiTextVersion)' == ''">1.0.0</Net4xiTextVersion>
+    <Version>$(Net4xiTextVersion)$(Suffix)</Version>
   </PropertyGroup>
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net461;net45;net40</TargetFrameworks>
