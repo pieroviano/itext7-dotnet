@@ -20,7 +20,7 @@
     <OutputType>library</OutputType>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>itext.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\itext.commons\itext.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
