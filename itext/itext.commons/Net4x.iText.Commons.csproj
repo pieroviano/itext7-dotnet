@@ -43,12 +43,12 @@
     <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net40'">
-    <PackageReference Include="Net4x.Extensions.Logging" Version="2.2.0" />
+    <PackageReference Include="Net4x.Extensions.Logging.Library" Version="$(Net4xExtensionsVersion).$(VersionBuildSuffix)" />
     <PackageReference Include="Net4x.AsyncBridge" Version="$(Net4xAsyncBridgeVersion).$(VersionBuildSuffix)" />
     <PackageReference Include="DotNetZip" Version="1.16.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net45' ">
-    <PackageReference Include="Net4x.Extensions.Logging" Version="2.2.0" />
+    <PackageReference Include="Net4x.Extensions.Logging.Library" Version="$(Net4xExtensionsVersion).$(VersionBuildSuffix)" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="$(NewtonsoftJsonVersion)" />
