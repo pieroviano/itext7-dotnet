@@ -7,7 +7,7 @@
     <RootNamespace />
     <DocumentationFile>$(TargetDir)bin\$(Configuration)\$(TargetFramework)\itext.styledxmlparser.xml</DocumentationFile>
     <Net4xiTextVersion Condition="'$(Net4xiTextVersion)' == ''">1.0.0</Net4xiTextVersion>
-    <Version>$(Net4xiTextVersion)$(Suffix)</Version>
+    <Version>$(VersionPrefix).$(VersionSuffix)</Version>
   </PropertyGroup>
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net461;net45;net40</TargetFrameworks>
