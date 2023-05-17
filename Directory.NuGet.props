@@ -97,5 +97,6 @@
     <UnitTestLibraryVersion>1.1.0</UnitTestLibraryVersion>
     <Xsd2DbVersion>1.1.0</Xsd2DbVersion>
     <iTextCoreVersion>1.0.0</iTextCoreVersion>
+    <PdfRepresentationVersion>1.0.1</PdfRepresentationVersion>
   </PropertyGroup>
 </Project>

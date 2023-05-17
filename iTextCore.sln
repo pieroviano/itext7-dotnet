@@ -61,7 +61,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{EF2B2499-F7CF-4912-BCAE-D536250950DE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net4x.iText", "itext\Net4x.iText\Net4x.iText.csproj", "{F1A306B8-3CBC-4477-8E33-27B098B8DBFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net4x.iText.All", "itext\Net4x.iText\Net4x.iText.All.csproj", "{F1A306B8-3CBC-4477-8E33-27B098B8DBFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
