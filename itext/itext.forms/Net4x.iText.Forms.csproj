@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
-  <Import Project = "$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets')" />
   <Import Project = "$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props')" />
   <PropertyGroup Label="Configuration">
     <SignAssembly>True</SignAssembly>
@@ -8,24 +7,19 @@
     <WarningLevel>4</WarningLevel>
     <Net4xiTextVersion Condition="'$(Net4xiTextVersion)' == ''">1.0.0</Net4xiTextVersion>
     <Version>$(VersionPrefix).$(VersionSuffix)</Version>
-  </PropertyGroup>
-  <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net461;net45;net40</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IncludeSymbols Condition="'$(Configuration)'=='Debug'">true</IncludeSymbols>
     <SymbolPackageFormat Condition="'$(Configuration)'=='Debug'">snupkg</SymbolPackageFormat>
     <IncludeSymbols Condition="'$(Configuration)'!='Debug'">false</IncludeSymbols>
-  </PropertyGroup>
-  <PropertyGroup>
     <OutputType>library</OutputType>
-  </PropertyGroup>
-  <PropertyGroup>
     <AssemblyOriginatorKeyFile>itext.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AssemblyName>itext.forms</AssemblyName>
     <RootNamespace />
+    <PackageId>$(MSBuildProjectName)</PackageId>
+    <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
+    <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
   </PropertyGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net45' ">
     <Reference Include="System" />
@@ -39,14 +33,9 @@
     <ProjectReference Include="..\itext.layout\Net4x.iText.Layout.csproj" />
   </ItemGroup>
 
-  <PropertyGroup>
-    <PackageId>$(MSBuildProjectName)</PackageId>
-    <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
-    <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
-  </PropertyGroup>
-  
   <ItemGroup>
     <PackageReference Include="NuGetUtility" Version="$(NuGetUtilityVersion)" PrivateAssets="All" />
   </ItemGroup>
 
+  <Import Project = "$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets')" />
 </Project>

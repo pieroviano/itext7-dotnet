@@ -1,68 +1,57 @@
 <Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
-  <Import Project = "$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets')" />
-  <Import Project = "$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props')" />
-  <PropertyGroup Label="Configuration">
-    <SignAssembly>True</SignAssembly>
-    <DelaySign>False</DelaySign>
-    <DocumentationFile>$(TargetDir)bin\$(Configuration)\$(TargetFramework)\itext.kernel.xml</DocumentationFile>
-    <WarningLevel>4</WarningLevel>
-    <Net4xiTextVersion Condition="'$(Net4xiTextVersion)' == ''">1.0.0</Net4xiTextVersion>
-    <Version>$(VersionPrefix).$(VersionSuffix)</Version>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <DefineConstants>PORTABLE;NEW_REFLECTION</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net461;net45;net40</TargetFrameworks>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <IncludeSymbols Condition="'$(Configuration)'=='Debug'">true</IncludeSymbols>
-    <SymbolPackageFormat Condition="'$(Configuration)'=='Debug'">snupkg</SymbolPackageFormat>
-    <IncludeSymbols Condition="'$(Configuration)'!='Debug'">false</IncludeSymbols>
-  </PropertyGroup>
-  <PropertyGroup>
-    <OutputType>library</OutputType>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>itext.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <RootNamespace />
-    <AssemblyName>itext.kernel</AssemblyName>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Portable.BouncyCastle" Version="1.8.9" />
-  </ItemGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <PackageReference Include="System.Collections.NonGeneric" Version="4.3.0" />
-    <PackageReference Include="System.Runtime.Serialization.Formatters" Version="4.3.0" />
-    <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
-    <PackageReference Include="System.Threading.ThreadPool" Version="4.3.0" />
-    <PackageReference Include="System.Xml.XmlDocument" Version="4.3.0" />
-    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
-  </ItemGroup>
-  <PropertyGroup>
-    <NoWarn>1701;1702;1591;1570;1572;1573;1574;1580;1584;1658</NoWarn>
-  </PropertyGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net45' ">
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\itext.io\Net4x.iText.IO.csproj" />
-  </ItemGroup>
+	<Import Project = "$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets')" />
+	<Import Project = "$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props')" />
+	<PropertyGroup Label="Configuration">
+		<SignAssembly>True</SignAssembly>
+		<DelaySign>False</DelaySign>
+		<DocumentationFile>$(TargetDir)bin\$(Configuration)\$(TargetFramework)\itext.kernel.xml</DocumentationFile>
+		<WarningLevel>4</WarningLevel>
+		<Net4xiTextVersion Condition="'$(Net4xiTextVersion)' == ''">1.0.0</Net4xiTextVersion>
+		<Version>$(VersionPrefix).$(VersionSuffix)</Version>
+		<DefineConstants Condition=" '$(TargetFramework)' == 'netstandard2.0' ">PORTABLE;NEW_REFLECTION</DefineConstants>
+		<TargetFrameworks>netstandard2.0;net461;net45;net40</TargetFrameworks>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<IncludeSymbols Condition="'$(Configuration)'=='Debug'">true</IncludeSymbols>
+		<SymbolPackageFormat Condition="'$(Configuration)'=='Debug'">snupkg</SymbolPackageFormat>
+		<IncludeSymbols Condition="'$(Configuration)'!='Debug'">false</IncludeSymbols>
+		<OutputType>library</OutputType>
+		<AssemblyOriginatorKeyFile>itext.snk</AssemblyOriginatorKeyFile>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<RootNamespace />
+		<AssemblyName>itext.kernel</AssemblyName>
+		<PackageId>$(MSBuildProjectName)</PackageId>
+		<PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
+		<PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
+		<NoWarn>1701;1702;1591;1570;1572;1573;1574;1580;1584;1658</NoWarn>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <PackageId>$(MSBuildProjectName)</PackageId>
-    <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
-    <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
-  </PropertyGroup>
-  
-  <ItemGroup>
-    <PackageReference Include="NuGetUtility" Version="$(NuGetUtilityVersion)" PrivateAssets="All" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Portable.BouncyCastle" Version="1.8.9" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+		<PackageReference Include="System.Collections.NonGeneric" Version="4.3.0" />
+		<PackageReference Include="System.Runtime.Serialization.Formatters" Version="4.3.0" />
+		<PackageReference Include="System.Threading.Thread" Version="4.3.0" />
+		<PackageReference Include="System.Threading.ThreadPool" Version="4.3.0" />
+		<PackageReference Include="System.Xml.XmlDocument" Version="4.3.0" />
+		<PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net45' ">
+		<Reference Include="System" />
+		<Reference Include="System.Core" />
+		<Reference Include="System.Drawing" />
+		<Reference Include="System.Xml" />
+		<Reference Include="System.Xml.Linq" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\itext.io\Net4x.iText.IO.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="NuGetUtility" Version="$(NuGetUtilityVersion)" PrivateAssets="All" />
+	</ItemGroup>
 
 </Project>
