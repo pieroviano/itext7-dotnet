@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <Import Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets')" />
   <Import Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props')" />
@@ -20,11 +21,9 @@
     <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
     <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="NuGetUtility" Version="$(NuGetUtilityVersion)" PrivateAssets="All" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference PrivateAsset="All" IncludeAsset="All" Include="..\itext.barcodes\Net4x.iText.BarCodes.csproj" />
     <ProjectReference PrivateAsset="All" IncludeAsset="All" Include="..\itext.commons\Net4x.iText.Commons.csproj" />
@@ -40,5 +39,4 @@
     <ProjectReference PrivateAsset="All" IncludeAsset="All" Include="..\itext.styledxmlparser\Net4x.iText.StyledXmlParser.csproj" />
     <ProjectReference PrivateAsset="All" IncludeAsset="All" Include="..\itext.svg\Net4x.iText.Svg.csproj" />
   </ItemGroup>
-
 </Project>

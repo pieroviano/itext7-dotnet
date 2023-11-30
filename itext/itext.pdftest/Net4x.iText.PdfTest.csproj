@@ -1,69 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
-	<Import Project = "$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props')" />
-	<PropertyGroup Label="Configuration">
-		<SignAssembly>True</SignAssembly>
-		<DelaySign>False</DelaySign>
-		<DocumentationFile>$(TargetDir)bin\$(Configuration)\$(TargetFramework)\itext.pdftest.xml</DocumentationFile>
-		<WarningLevel>4</WarningLevel>
-		<Net4xiTextVersion Condition="'$(Net4xiTextVersion)' == ''">1.0.0</Net4xiTextVersion>
-		<Version>$(VersionPrefix).$(VersionSuffix)</Version>
-		<TargetFrameworks>netstandard2.0;net461;net45;net40</TargetFrameworks>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<IncludeSymbols Condition="'$(Configuration)'=='Debug'">true</IncludeSymbols>
-		<SymbolPackageFormat Condition="'$(Configuration)'=='Debug'">snupkg</SymbolPackageFormat>
-		<IncludeSymbols Condition="'$(Configuration)'!='Debug'">false</IncludeSymbols>
-		<OutputType>library</OutputType>
-		<AssemblyOriginatorKeyFile>itext.snk</AssemblyOriginatorKeyFile>
-		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-		<RootNamespace />
-		<AssemblyName>itext.pdftest</AssemblyName>
-		<NoWarn>1701;1702;1591;1570;1572;1573;1574;1580;1584;1658</NoWarn>
-		<PackageId>$(MSBuildProjectName)</PackageId>
-		<PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
-		<PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
-	</PropertyGroup>
-
-	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-		<PackageReference Include="System.Collections.Concurrent" Version="4.3.0" />
-		<PackageReference Include="System.Reflection.Extensions" Version="4.3.0" />
-		<PackageReference Include="System.Xml.XmlDocument" Version="4.3.0" />
-		<PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
-		<!--    
+  <Import Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props')" />
+  <PropertyGroup Label="Configuration">
+    <SignAssembly>True</SignAssembly>
+    <DelaySign>False</DelaySign>
+    <DocumentationFile>$(TargetDir)bin\$(Configuration)\$(TargetFramework)\itext.pdftest.xml</DocumentationFile>
+    <WarningLevel>4</WarningLevel>
+    <Net4xiTextVersion Condition="'$(Net4xiTextVersion)' == ''">1.0.0</Net4xiTextVersion>
+    <Version>$(VersionPrefix).$(VersionSuffix)</Version>
+    <TargetFrameworks>netstandard2.0;net461;net45;net40</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IncludeSymbols Condition="'$(Configuration)'=='Debug'">true</IncludeSymbols>
+    <SymbolPackageFormat Condition="'$(Configuration)'=='Debug'">snupkg</SymbolPackageFormat>
+    <IncludeSymbols Condition="'$(Configuration)'!='Debug'">false</IncludeSymbols>
+    <OutputType>library</OutputType>
+    <AssemblyOriginatorKeyFile>itext.snk</AssemblyOriginatorKeyFile>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <RootNamespace />
+    <AssemblyName>itext.pdftest</AssemblyName>
+    <NoWarn>1701;1702;1591;1570;1572;1573;1574;1580;1584;1658</NoWarn>
+    <PackageId>$(MSBuildProjectName)</PackageId>
+    <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
+    <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <PackageReference Include="System.Collections.Concurrent" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.Extensions" Version="4.3.0" />
+    <PackageReference Include="System.Xml.XmlDocument" Version="4.3.0" />
+    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+    <!--    
 	     Explicitly add System.Net.Http v4.3.4 dependency.
 	     Without this explicit dependency Rider IDE somehow cannot properly resolve it, which ends up in FileNotFound exception
 	     in code that executes UrlUtil#OpenStream.
 	    -->
-		<PackageReference Include="System.Net.Http" Version="4.3.4" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="NUnit" Version="3.7.1" />
-		<PackageReference Include="Portable.BouncyCastle" Version="1.8.9" />
-	</ItemGroup>
-
-	<ItemGroup Condition=" '$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net45' ">
-		<Reference Include="System" />
-		<Reference Include="System.Core" />
-		<Reference Include="System.Xml" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\itext.io\Net4x.iText.IO.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Content Include="lib\verapdf\greenfield-apps-1.22.2.jar">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="lib\verapdf\VeraPDF_license.txt">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<None Include="packages.config" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="NuGetUtility" Version="$(NuGetUtilityVersion)" PrivateAssets="All" />
-	</ItemGroup>
-
-	<Import Project = "$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets')" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="3.7.1" />
+    <PackageReference Include="Portable.BouncyCastle" Version="1.8.9" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net45' ">
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\itext.io\Net4x.iText.IO.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\verapdf\greenfield-apps-1.22.2.jar">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\verapdf\VeraPDF_license.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NuGetUtility" Version="$(NuGetUtilityVersion)" PrivateAssets="All" />
+  </ItemGroup>
+  <Import Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets')" />
 </Project>
