@@ -1,100 +1,101 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
-  <Import Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props')" />
-  <PropertyGroup Label="Configuration">
-    <SignAssembly>True</SignAssembly>
-    <DelaySign>False</DelaySign>
-    <DocumentationFile>$(TargetDir)bin\$(Configuration)\$(TargetFramework)\itext.io.xml</DocumentationFile>
-    <WarningLevel>4</WarningLevel>
-    <Net4xiTextVersion Condition="'$(Net4xiTextVersion)' == ''">1.0.0</Net4xiTextVersion>
-    <Version>$(VersionPrefix).$(VersionSuffix)</Version>
-    <TargetFrameworks>netstandard2.0;net461;net45;net40</TargetFrameworks>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <IncludeSymbols Condition="'$(Configuration)'=='Debug'">true</IncludeSymbols>
-    <SymbolPackageFormat Condition="'$(Configuration)'=='Debug'">snupkg</SymbolPackageFormat>
-    <IncludeSymbols Condition="'$(Configuration)'!='Debug'">false</IncludeSymbols>
-    <OutputType>library</OutputType>
-    <AssemblyOriginatorKeyFile>itext.snk</AssemblyOriginatorKeyFile>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <AssemblyName>itext.io</AssemblyName>
-    <RootNamespace />
-    <PackageId>$(MSBuildProjectName)</PackageId>
-    <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
-    <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
-  </PropertyGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="resources\AdobeGlyphList.txt">
-      <LogicalName>iText.IO.Font.AdobeGlyphList.txt</LogicalName>
-    </EmbeddedResource>
-    <None Include="resources\cmap_info.txt" />
-    <None Include="resources\mustRead.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="resources\afm\Courier-Bold.afm">
-      <LogicalName>iText.IO.Font.Afm.Courier-Bold.afm</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resources\afm\Courier-BoldOblique.afm">
-      <LogicalName>iText.IO.Font.Afm.Courier-BoldOblique.afm</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resources\afm\Courier-Oblique.afm">
-      <LogicalName>iText.IO.Font.Afm.Courier-Oblique.afm</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resources\afm\Courier.afm">
-      <LogicalName>iText.IO.Font.Afm.Courier.afm</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resources\afm\Helvetica-Bold.afm">
-      <LogicalName>iText.IO.Font.Afm.Helvetica-Bold.afm</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resources\afm\Helvetica-BoldOblique.afm">
-      <LogicalName>iText.IO.Font.Afm.Helvetica-BoldOblique.afm</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resources\afm\Helvetica-Oblique.afm">
-      <LogicalName>iText.IO.Font.Afm.Helvetica-Oblique.afm</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resources\afm\Helvetica.afm">
-      <LogicalName>iText.IO.Font.Afm.Helvetica.afm</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resources\afm\Symbol.afm">
-      <LogicalName>iText.IO.Font.Afm.Symbol.afm</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resources\afm\Times-Bold.afm">
-      <LogicalName>iText.IO.Font.Afm.Times-Bold.afm</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resources\afm\Times-BoldItalic.afm">
-      <LogicalName>iText.IO.Font.Afm.Times-BoldItalic.afm</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resources\afm\Times-Italic.afm">
-      <LogicalName>iText.IO.Font.Afm.Times-Italic.afm</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resources\afm\Times-Roman.afm">
-      <LogicalName>iText.IO.Font.Afm.Times-Roman.afm</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resources\afm\ZapfDingbats.afm">
-      <LogicalName>iText.IO.Font.Afm.ZapfDingbats.afm</LogicalName>
-    </EmbeddedResource>
-  </ItemGroup>
-  <PropertyGroup>
-    <NoWarn>1701;1702;1591;1570;1572;1573;1574;1580;1584;1658</NoWarn>
-  </PropertyGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net45' ">
-    <Reference Include="System" />
-    <Reference Include="System.Drawing" />
-  </ItemGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <PackageReference Include="System.Globalization.Extensions" Version="4.3.0" />
-    <PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
-    <PackageReference Include="System.Diagnostics.Process" Version="4.3.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="1.1.0" />
-    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.3.0" />
-    <PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Version="1.1.0" />
-    <PackageReference Include="System.Xml.XmlDocument" Version="4.3.0" />
-    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\itext.commons\Net4x.iText.Commons.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="NuGetUtility" Version="$(NuGetUtilityVersion)" PrivateAssets="All" />
-  </ItemGroup>
-  <Import Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets')" />
+    <Import Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props')" Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props" />
+    <PropertyGroup Label="Configuration">
+        <SignAssembly>True</SignAssembly>
+        <DelaySign>False</DelaySign>
+        <DocumentationFile>$(TargetDir)bin\$(Configuration)\$(TargetFramework)\itext.io.xml</DocumentationFile>
+        <WarningLevel>4</WarningLevel>
+        <Net4xiTextVersion Condition="'$(Net4xiTextVersion)' == ''">1.0.0</Net4xiTextVersion>
+        <Version>$(VersionPrefix).$(VersionSuffix)</Version>
+        <TargetFrameworks>netstandard2.0;net461;net45;net40</TargetFrameworks>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <IncludeSymbols Condition="'$(Configuration)'=='Debug'">true</IncludeSymbols>
+        <SymbolPackageFormat Condition="'$(Configuration)'=='Debug'">snupkg</SymbolPackageFormat>
+        <IncludeSymbols Condition="'$(Configuration)'!='Debug'">false</IncludeSymbols>
+        <OutputType>library</OutputType>
+        <AssemblyOriginatorKeyFile>itext.snk</AssemblyOriginatorKeyFile>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AssemblyName>itext.io</AssemblyName>
+        <RootNamespace />
+        <PackageId>$(MSBuildProjectName)</PackageId>
+        <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
+        <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
+        <DontConvert>False</DontConvert>
+    </PropertyGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="resources\AdobeGlyphList.txt">
+            <LogicalName>iText.IO.Font.AdobeGlyphList.txt</LogicalName>
+        </EmbeddedResource>
+        <None Include="resources\cmap_info.txt" />
+        <None Include="resources\mustRead.html" />
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="resources\afm\Courier-Bold.afm">
+            <LogicalName>iText.IO.Font.Afm.Courier-Bold.afm</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="resources\afm\Courier-BoldOblique.afm">
+            <LogicalName>iText.IO.Font.Afm.Courier-BoldOblique.afm</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="resources\afm\Courier-Oblique.afm">
+            <LogicalName>iText.IO.Font.Afm.Courier-Oblique.afm</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="resources\afm\Courier.afm">
+            <LogicalName>iText.IO.Font.Afm.Courier.afm</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="resources\afm\Helvetica-Bold.afm">
+            <LogicalName>iText.IO.Font.Afm.Helvetica-Bold.afm</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="resources\afm\Helvetica-BoldOblique.afm">
+            <LogicalName>iText.IO.Font.Afm.Helvetica-BoldOblique.afm</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="resources\afm\Helvetica-Oblique.afm">
+            <LogicalName>iText.IO.Font.Afm.Helvetica-Oblique.afm</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="resources\afm\Helvetica.afm">
+            <LogicalName>iText.IO.Font.Afm.Helvetica.afm</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="resources\afm\Symbol.afm">
+            <LogicalName>iText.IO.Font.Afm.Symbol.afm</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="resources\afm\Times-Bold.afm">
+            <LogicalName>iText.IO.Font.Afm.Times-Bold.afm</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="resources\afm\Times-BoldItalic.afm">
+            <LogicalName>iText.IO.Font.Afm.Times-BoldItalic.afm</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="resources\afm\Times-Italic.afm">
+            <LogicalName>iText.IO.Font.Afm.Times-Italic.afm</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="resources\afm\Times-Roman.afm">
+            <LogicalName>iText.IO.Font.Afm.Times-Roman.afm</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="resources\afm\ZapfDingbats.afm">
+            <LogicalName>iText.IO.Font.Afm.ZapfDingbats.afm</LogicalName>
+        </EmbeddedResource>
+    </ItemGroup>
+    <PropertyGroup>
+        <NoWarn>1701;1702;1591;1570;1572;1573;1574;1580;1584;1658</NoWarn>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="System" Condition=" '$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net45' " />
+        <Reference Include="System.Drawing" Condition=" '$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net45' " />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Condition=" '$(TargetFramework)' == 'netstandard2.0' " Version="1.1.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyModel" Condition=" '$(TargetFramework)' == 'netstandard2.0' " Version="1.1.0" />
+        <PackageReference Include="System.Diagnostics.Process" Condition=" '$(TargetFramework)' == 'netstandard2.0' " Version="4.3.0" />
+        <PackageReference Include="System.Globalization.Extensions" Condition=" '$(TargetFramework)' == 'netstandard2.0' " Version="4.3.0" />
+        <PackageReference Include="System.Runtime.Loader" Condition=" '$(TargetFramework)' == 'netstandard2.0' " Version="4.3.0" />
+        <PackageReference Include="System.Text.Encoding.CodePages" Condition=" '$(TargetFramework)' == 'netstandard2.0' " Version="4.3.0" />
+        <PackageReference Include="System.Text.RegularExpressions" Condition=" '$(TargetFramework)' == 'netstandard2.0' " Version="4.3.1" />
+        <PackageReference Include="System.Xml.XmlDocument" Condition=" '$(TargetFramework)' == 'netstandard2.0' " Version="4.3.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\itext.commons\Net4x.iText.Commons.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="NuGetUtility" PrivateAssets="All" Version="$(NuGetUtilityVersion)" />
+    </ItemGroup>
+    <Import Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets')" Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets" />
 </Project>

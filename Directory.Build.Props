@@ -2,6 +2,7 @@
   <Import Project="Directory.NuGet.props" Condition="'$(DirectoryNuGet)'==''" />
   <PropertyGroup>
     <VersionPrefix>$(iTextCoreVersion)</VersionPrefix>
+    <SolutionDir Condition="'$(SolutionDir)'==''">$(MSBuildThisFileDirectory)</SolutionDir>
     <VersionSuffix Condition="'$(Configuration)'!='Release'">0-at20230517062345</VersionSuffix>
     <VersionSuffix Condition="'$(Configuration)'=='Release'">0</VersionSuffix>
   </PropertyGroup>
