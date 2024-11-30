@@ -1,52 +1,41 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
-  <Import Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets')" />
-  <Import Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props" Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props')" />
-  <PropertyGroup Label="Configuration">
-    <SignAssembly>True</SignAssembly>
-    <DelaySign>False</DelaySign>
-    <DocumentationFile>$(TargetDir)bin\$(Configuration)\$(TargetFramework)\itext.commons.xml</DocumentationFile>
-    <WarningLevel>4</WarningLevel>
-    <Version>$(VersionPrefix).$(VersionSuffix)</Version>
-    <TargetFrameworks>netstandard2.0;net461;net45;net40</TargetFrameworks>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <IncludeSymbols Condition="'$(Configuration)'=='Debug'">true</IncludeSymbols>
-    <SymbolPackageFormat Condition="'$(Configuration)'=='Debug'">snupkg</SymbolPackageFormat>
-    <IncludeSymbols Condition="'$(Configuration)'!='Debug'">false</IncludeSymbols>
-    <OutputType>library</OutputType>
-    <AssemblyOriginatorKeyFile>itext.snk</AssemblyOriginatorKeyFile>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <AssemblyName>itext.commons</AssemblyName>
-    <RootNamespace />
-    <NoWarn>1701;1702;1591;1570;1572;1573;1574;1580;1584;1658</NoWarn>
-    <LangVersion>latest</LangVersion>
-    <PackageId>$(MSBuildProjectName)</PackageId>
-    <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
-    <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
-  </PropertyGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net45' ">
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.IO.Compression" />
-  </ItemGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.3.0" />
-  </ItemGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'netstandard2.0' ">
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="$(MicrosoftExtensionsLoggingVersion)" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net40'">
-    <PackageReference Include="Net4x.Extensions.Logging.Library" Version="$(Net4xExtensionsVersion).$(VersionBuildSuffix)" />
-    <PackageReference Include="Net4x.AsyncBridge" Version="$(Net4xAsyncBridgeVersion).$(VersionBuildSuffix)" />
-    <PackageReference Include="DotNetZip" Version="1.16.0" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net45' ">
-    <PackageReference Include="Net4x.Extensions.Logging.Library" Version="$(Net4xExtensionsVersion).$(VersionBuildSuffix)" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="$(NewtonsoftJsonVersion)" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="NuGetUtility" Version="$(NuGetUtilityVersion)" PrivateAssets="All" />
-  </ItemGroup>
+    <Import Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets')" Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.targets" />
+    <Import Condition="Exists('$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props')" Project="$(UserProfile)\.nuget\packages\nugetutility\$(NuGetUtilityVersion)\build\NuGet.Utility.props" />
+    <PropertyGroup Label="Configuration">
+        <SignAssembly>True</SignAssembly>
+        <DelaySign>False</DelaySign>
+        <DocumentationFile>$(TargetDir)bin\$(Configuration)\$(TargetFramework)\itext.commons.xml</DocumentationFile>
+        <WarningLevel>4</WarningLevel>
+        <Version>$(VersionPrefix).$(VersionSuffix)</Version>
+        <TargetFrameworks>netstandard2.0;net461;net45;net40</TargetFrameworks>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <IncludeSymbols Condition="'$(Configuration)'=='Debug'">true</IncludeSymbols>
+        <SymbolPackageFormat Condition="'$(Configuration)'=='Debug'">snupkg</SymbolPackageFormat>
+        <IncludeSymbols Condition="'$(Configuration)'!='Debug'">false</IncludeSymbols>
+        <OutputType>library</OutputType>
+        <AssemblyOriginatorKeyFile>itext.snk</AssemblyOriginatorKeyFile>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AssemblyName>itext.commons</AssemblyName>
+        <RootNamespace />
+        <NoWarn>1701;1702;1591;1570;1572;1573;1574;1580;1584;1658</NoWarn>
+        <LangVersion>latest</LangVersion>
+        <PackageId>$(MSBuildProjectName)</PackageId>
+        <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
+        <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="System" Condition=" '$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net45' " />
+        <Reference Include="System.Core" Condition=" '$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net45' " />
+        <Reference Include="System.IO.Compression" Condition=" '$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net45' " />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="DotNetZip" Condition="'$(TargetFramework)' == 'net40'" Version="$(DotNetZipVersion).$(VersionBuildSuffix)" />
+        <PackageReference Include="Microsoft.Extensions.Logging" Condition=" '$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'netstandard2.0' " Version="$(MicrosoftExtensionsLoggingVersion)" />
+        <PackageReference Include="Net4x.AsyncBridge" Condition="'$(TargetFramework)' == 'net40'" Version="$(Net4xAsyncBridgeVersion).$(VersionBuildSuffix)" />
+        <PackageReference Include="Net4x.Extensions.Logging.Library" Condition="'$(TargetFramework)' == 'net40' or '$(TargetFramework)' == 'net45' " Version="$(Net4xExtensionsVersion).$(VersionBuildSuffix)" />
+        <PackageReference Include="Newtonsoft.Json" Version="$(NewtonsoftJsonVersion)" />
+        <PackageReference Include="NuGetUtility" PrivateAssets="All" Version="$(NuGetUtilityVersion)" />
+        <PackageReference Include="System.Text.Encoding.CodePages" Condition=" '$(TargetFramework)' == 'netstandard2.0' " Version="4.3.0" />
+    </ItemGroup>
 </Project>
