@@ -30,7 +30,7 @@
         <Reference Include="System.IO.Compression" Condition=" '$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net45' " />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="DotNetZip" Condition="'$(TargetFramework)' == 'net40'" Version="$(DotNetZipVersion).$(VersionBuildSuffix)" />
+        <PackageReference Include="Net4x.DotNetZip" Condition="'$(TargetFramework)' == 'net40'" Version="$(DotNetZipVersion).$(VersionBuildSuffix)" />
         <PackageReference Include="Microsoft.Extensions.Logging" Condition=" '$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'netstandard2.0' " Version="$(MicrosoftExtensionsLoggingVersion)" />
         <PackageReference Include="Net4x.AsyncBridge" Condition="'$(TargetFramework)' == 'net40'" Version="$(Net4xAsyncBridgeVersion).$(VersionBuildSuffix)" />
         <PackageReference Include="Net4x.Extensions.Logging.Library" Condition="'$(TargetFramework)' == 'net40' or '$(TargetFramework)' == 'net45' " Version="$(Net4xExtensionsVersion).$(VersionBuildSuffix)" />

@@ -1377,6 +1377,11 @@
         "Name": "CoreLibrary.TypedBackgroundWorker.Test\\CoreLibrary.TypedBackgroundWorker.Test.csproj",
         "Project": "Net4x.$(MSBuildProjectName)",
         "PackageReferences": null
+      },
+      {
+        "Name": "Net4x.CoreLibrary.Interfaces.General.Common",
+        "Project": "CoreLibrary.Interfaces\\CoreLibrary.Interfaces.General.csproj",
+        "PackageReferences": null
       }
     ]
   },
@@ -11708,6 +11713,11 @@
             "Version": "$(Net4xAsyncBridgeVersion).$(VersionBuildSuffix)"
           }
         ]
+      },
+      {
+        "Name": "src\\Serilog\\Serilog.csproj",
+        "Project": "Net4x.Serilog.Library",
+        "PackageReferences": null
       }
     ]
   },
